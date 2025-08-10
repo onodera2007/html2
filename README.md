@@ -1,6 +1,6 @@
 # 版本兼容
-[html](https://github.com/onodera2007/html) &nbsp; &nbsp; &nbsp; &nbsp; -2.2.2</br>
-html2(当前) &nbsp; 2.2.3-</br>
+[html](https://github.com/onodera2007/html)-2.2.2<br>
+html2(当前) &nbsp; 2.2.3-<br>
 # 如何使用？
 # 如何查看更新标签
 [添加]<br>
