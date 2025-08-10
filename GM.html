@@ -1,0 +1,74 @@
+<html>
+<head>
+    <div class="container"> 
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept=".zon" /></br>
+            <button onclick="parseZonFile()">解析文件</button></br>
+        </div>     
+        <div id="output"></div>
+    </div></br>
+    <label for="Avatar">代理人</label>
+    <select id="Avatar" name="Avatar">
+      <option value="1011">安比</option>
+      <option value="1021">猫又</option>
+      <option value="1031">妮可</option>
+      <option value="1041">「11号」</option>
+      <option value="1061">可琳</option>
+      <option value="1071">凯撒</option>
+      <option value="1081">比利</option>
+      <option value="1091">雅</option>
+      <option value="1101">珂蕾妲</option>
+      <option value="1111">安东</option>
+      <option value="1121">本</option>
+      <option value="1131">苍角</option>
+      <option value="1141">莱卡恩</option>
+      <option value="1151">露西</option>
+      <option value="1161">莱特</option>
+      <option value="1171">柏妮思</option>
+      <option value="1181">格莉丝</option>
+      <option value="1191">艾莲</option>
+      <option value="1201">悠真</option>
+      <option value="1211">丽娜</option>
+      <option value="1221">柳</option>
+      <option value="1241">朱鸢</option>
+      <option value="1251">青衣</option>
+      <option value="1261">简</option>
+      <option value="1271">赛斯</option>
+      <option value="1281">派派</option>
+      <option value="1291">雨果</option>
+      <option value="1301">奥菲丝&amp;「鬼火」</option>
+      <option value="1311">耀嘉音</option>
+      <option value="1321">伊芙琳</option>
+      <option value="1331">薇薇安</option>
+      <option value="1351">波可娜</option>
+      <option value="1361">「扳机」</option>
+      <option value="1371">仪玄</option>
+      <option value="1381">零号·安比</option>
+      <option value="1391">橘福福</option>
+      <option value="1401">爱丽丝</option>
+      <option value="1411">柚叶</option>
+      <option value="1421">潘引壶</option>
+      <option value="1441">狛野真斗</option>
+      <option value="1461">席德</option>
+    </select></br>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target.result;
+                try {
+                    // 假设 .zon 是 JSON 格式
+                    const parsedData = JSON.parse(content);
+                    console.log(parsedData);
+                } catch (err) {
+                    console.error("解析失败，可能是非 JSON 格式:", err);
+                }
+            };
+            reader.readAsText(file); // 以文本形式读取
+        });
+    </script>
+</head>
+</html>
