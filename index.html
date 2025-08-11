@@ -1,74 +1,240 @@
 <html>
-<head>
-    <div class="container"> 
-        <div class="upload-section">
-            <input type="file" id="fileInput" accept=".zon" /></br>
-            <button onclick="parseZonFile()">解析文件</button></br>
-        </div>     
-        <div id="output"></div>
-    </div></br>
-    <label for="Avatar">代理人</label>
-    <select id="Avatar" name="Avatar">
-      <option value="1011">安比</option>
-      <option value="1021">猫又</option>
-      <option value="1031">妮可</option>
-      <option value="1041">「11号」</option>
-      <option value="1061">可琳</option>
-      <option value="1071">凯撒</option>
-      <option value="1081">比利</option>
-      <option value="1091">雅</option>
-      <option value="1101">珂蕾妲</option>
-      <option value="1111">安东</option>
-      <option value="1121">本</option>
-      <option value="1131">苍角</option>
-      <option value="1141">莱卡恩</option>
-      <option value="1151">露西</option>
-      <option value="1161">莱特</option>
-      <option value="1171">柏妮思</option>
-      <option value="1181">格莉丝</option>
-      <option value="1191">艾莲</option>
-      <option value="1201">悠真</option>
-      <option value="1211">丽娜</option>
-      <option value="1221">柳</option>
-      <option value="1241">朱鸢</option>
-      <option value="1251">青衣</option>
-      <option value="1261">简</option>
-      <option value="1271">赛斯</option>
-      <option value="1281">派派</option>
-      <option value="1291">雨果</option>
-      <option value="1301">奥菲丝&amp;「鬼火」</option>
-      <option value="1311">耀嘉音</option>
-      <option value="1321">伊芙琳</option>
-      <option value="1331">薇薇安</option>
-      <option value="1351">波可娜</option>
-      <option value="1361">「扳机」</option>
-      <option value="1371">仪玄</option>
-      <option value="1381">零号·安比</option>
-      <option value="1391">橘福福</option>
-      <option value="1401">爱丽丝</option>
-      <option value="1411">柚叶</option>
-      <option value="1421">潘引壶</option>
-      <option value="1441">狛野真斗</option>
-      <option value="1461">席德</option>
-    </select></br>
-    <script>
-        document.getElementById('fileInput').addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (!file) return;
+<title>绝区零指令控制台2</title>
+<style>
+    .update-link {
+        color: black;
+        /* 白色文字 */
+        text-decoration: underline;
+        /* 下划线 */
+    }
+</style>
 
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const content = e.target.result;
-                try {
-                    // 假设 .zon 是 JSON 格式
-                    const parsedData = JSON.parse(content);
-                    console.log(parsedData);
-                } catch (err) {
-                    console.error("解析失败，可能是非 JSON 格式:", err);
+<head>
+    <label>当前版本为4.5</label></br>
+    <label>
+        这个网站会随时更新，所以记得常看
+        <a class="update-link" href="https://github.com/onodera2007/html2/releases" target="_blank">更新</a>
+        了什么！
+    </label>
+    <br />
+    <input type="file" id="fileInput" accept=".zon" /></br>
+    <label>把游戏的zon文件上传到这里,然后点击“</label>
+    <button onclick="run()">上传并转换</button>
+    <label>”</label></br>
+    <label for="1etn">保存</label><br>
+    <button onclick="save()">保存</button><br>
+    <label for="1etn">剧变节点格式</label><br>
+    <input type="radio" name="1etn" id="ent_sec1-1" value="1">普通<br>
+    <input type="radio" name="1etn" id="ent_sec1-2" value="2">特殊<br>
+    <label for="ent1">剧变节点(普通)</label><br>
+    <label for="ent1">只能输入从开服到现在的剧变节点</label><br>
+    <input type="number" id="ent1-1" name="ent1" min="1" max="32" value="32" /><br>
+    <label for="ent1">剧变节点(特殊)</label><br>
+    <label for="ent1">可以输入测试服里面的剧变节点</label><br>
+    <select id="ent1-2" name="ent1">
+        <option value="620301-1">620301-1</option>
+        <option value="620301-2">620301-2</option>
+        <option value="620301-3">620301-3</option>
+    </select><br>
+    <label for="9etn">危局强袭战格式</label><br>
+    <input type="radio" name="9etn" id="ent_sec9-1" value="1">普通<br>
+    <input type="radio" name="9etn" id="ent_sec9-2" value="2">特殊<br>
+    <label for="ent9">危局强袭战(普通)</label><br>
+    <label for="ent1">只能输入从开服到现在的危局强袭战</label><br>
+    <input type="number" id="ent9-1" name="ent9" min="1" max="21" value="21" /><br>
+    <label for="ent9">危局强袭战(特殊)</label><br>
+    <label for="ent9">可以输入测试服里面的危局强袭战</label><br>
+    <select id="ent9-2" name="ent9">
+        <option value="031">031</option>
+        <option value="041">041</option>
+        <option value="051">051</option>
+        <option value="061">061</option>
+        <option value="191">191</option>
+        <option value="201">201</option>
+        <option value="211">211</option>
+    </select><br>
+    <script>
+        let formattedContent = "";
+        const etn1Radios = document.getElementsByName('1etn');
+        const etn9Radios = document.getElementsByName('9etn');
+        const ent1_1 = document.getElementById('ent1-1');
+        const ent1_2 = document.getElementById('ent1-1');
+        const ent9_1 = document.getElementById('ent9-1');
+        const ent9_2 = document.getElementById('ent9-2');
+        const ent_sec1_1 = document.getElementById('ent_sec1-1');
+        const ent_sec1_2 = document.getElementById('ent_sec1-2');
+        const ent_sec9_1 = document.getElementById('ent_sec9-1');
+        const ent_sec9_2 = document.getElementById('ent_sec9-2');
+        function save() {
+
+            let selectedEtn1Value;
+            for (const radio of etn1Radios) {
+                if (radio.checked) {
+                    selectedEtn1Value = radio.value;
+                    break;
                 }
-            };
-            reader.readAsText(file); // 以文本形式读取
-        });
+            }
+
+            let selectedEtn9Value;
+            for (const radio of etn9Radios) {
+                if (radio.checked) {
+                    selectedEtn9Value = radio.value;
+                    break;
+                }
+            }
+
+            let entrance_id1 = 0
+            let entrance_id9 = 0
+            if (parseInt(selectedEtn1Value, 10) === 1) {
+                //普通的逻辑
+                let ent_1 = parseInt(document.getElementById('ent1-1').value, 10);
+                if (ent_1 < 10) {
+                    //如果小于10，前面补0
+                    ent_1 = `0${ent_1}`;
+                }
+                entrance_id1 = `620${ent_1}`;
+            } else if (parseInt(selectedEtn1Value, 10) === 2) {
+                //特殊的逻辑
+                ent_1 = document.getElementById('ent1-2').value;
+            } else {
+                return alert('请选择剧变节点格式');
+            }
+            if (parseInt(selectedEtn9Value, 10) === 1) {
+                //普通的逻辑
+                let ent_9 = parseInt(selectedEtn1Value, 10);
+                if (ent_9 < 10) {
+                    //如果小于10，前面补0
+                    ent_9 = `0${ent_9}`;
+                }
+                entrance_id9 = `690${ent_9}`;
+            } else if (parseInt(selectedEtn9Value, 10) === 2) {
+                //特殊的逻辑
+                let ent_9 = document.getElementById('ent9-2').value;
+                entrance_id9 = `690${ent_9}`;
+            } else {
+                return alert('请选择危局强袭战格式');
+            }
+            const text = `.{
+    .hadal_entrance_list = .{
+        //稳定节点不能修改！                                       
+        .{ .entrance_id = 2, .zone_id = 61001 },
+        //纷争节点不能修改！                                       
+        .{ .entrance_id = 3, .zone_id = 61002 },
+        //剧变节点!                                           
+        .{ .entrance_id = 1, .zone_id = ${entrance_id1} },
+        //危局强袭战!                                          
+        .{ .entrance_id = 9, .zone_id = ${entrance_id9} },
+    },
+    .avatar_overrides = .{                                          
+    },
+    .weapons = .{                                          
+    },
+    .equipment = .{                                            
+    },
+}
+            `;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'gameplay_settings.default.zon'; // 设置默认文件名
+            // 触发下载
+            link.click();
+
+        }
+        async function run() {
+            try {
+                // 等待文件读取完成
+                const fileContent = await uploadButton();
+                // 转换
+                formattedContent = FormatConversion(fileContent);
+                // 保存到全局变量
+                window.now = formattedContent;
+                console.log("Formatted content:", formattedContent);
+                console.log("Formatted content saved to window.now");
+            } catch (error) {
+                console.error("Error:", error);
+            }
+            const regex = /\.entrance_id\s*=\s*(1|9),\s*\.zone_id\s*=\s*(\d+)/g;
+            let match;
+
+            let temp = {}; // 临时对象
+            while ((match = regex.exec(formattedContent)) !== null) {
+                temp[`entrance_${match[1]}`] = Number(match[2]);
+            }
+            // 用解构赋值直接生成常量
+            const { entrance_1, entrance_9 } = temp;
+            etn1Radios.value = entrance_1.toString().slice(-2);
+            etn9Radios.value = entrance_9.toString().slice(-2);
+            const numPart1 = parseInt((entrance_1), 10).toString().slice(3); // 提取 "620" 之后的部分
+            const num1 = parseInt(numPart1, 10); // 转成数字
+            // 3. 检查数字是否在 1-21 范围内
+            if (num1 >= 1 && num1 <= 32) {
+                // 普通格式
+                ent_sec1_1.checked = true;
+                ent1_1.value = num1;
+                // 更新输入框的值
+            } else {
+                ent_sec1_2.checked = true;
+                ent1_2.value = num1;
+                // 更新下拉框的值
+                // 特殊格式
+            }
+            const numPart2 = parseInt((entrance_9), 10).toString().slice(3); // 提取 "620" 之后的部分
+            const num2 = parseInt(numPart2, 10); // 转成数字
+            // 3. 检查数字是否在 1-21 范围内
+            if (num2 >= 1 && num2 <= 21) {
+                ent_sec9_1.checked = true;
+                ent9_1.value = num2;
+                // 更新输入框的值
+                // 普通格式
+            } else {
+                ent_sec9_2.checked = true;
+
+                ent9_2.value = num2;
+                // 特殊格式
+            }
+        }
+
+        function uploadButton() {
+            return new Promise((resolve, reject) => {
+                const fileInput = document.getElementById('fileInput');
+
+                if (!fileInput.files.length) {
+                    reject("No file selected");
+                    return;
+                }
+
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = (e) => resolve(e.target.result);
+                reader.onerror = () => reject("File reading failed");
+
+                reader.readAsText(file);
+            });
+        }
+
+        function FormatConversion(fileText) {
+            function formatConfigText(rawText) {
+                if (typeof rawText !== "string") {
+                    throw new Error("fileText 必须是字符串");
+                }
+
+                // 1. 统一换行符为 \n
+                let formatted = rawText.replace(/\r\n/g, '\n');
+
+                // 2. 移除行尾空格
+                formatted = formatted.replace(/ +$/gm, '');
+
+                // 3. 保留两行以内的空行
+                formatted = formatted.replace(/\n{3,}/g, '\n\n');
+
+                return formatted;
+            }
+
+            return formatConfigText(fileText);
+        }
     </script>
 </head>
+
 </html>
