@@ -10,7 +10,7 @@
 </style>
 
 <head>
-    <label>当前版本为4.6</label></br>
+    <label>当前版本为4.6fix</label></br>
     <label>
         这个网站会随时更新，所以记得常看
         <a class="update-link" href="https://github.com/onodera2007/html2/releases" target="_blank">更新</a>
@@ -1777,7 +1777,16 @@
                 const firstColumn = columns[0]; // 第一列，也就是 text1
                 //rowCount到后面会变成能创造多少个.{}
                 rowCount = firstColumn.length;
-                value = columns
+                arr = columns
+            }
+            console.log(columns);
+            for (let i = 0; i < rowCount; i++) {
+                for (let j = i + 1; j < rowCount; j++) { // j 从 i+1 开始就不用 i!=j
+                    if (columns[0][i] == columns[0][j]) {
+                        alert('有重复角色!');
+                        return false;
+                    }
+                }
             }
             let j = 0;
             let result = ".avatar_overrides = .{\n";
@@ -1818,7 +1827,7 @@
 
                 result += "    },\n"; // equipment
                 result += "  },\n"; // avatar_overrides 子对象结束
-                
+
             }
             result += "},\n";
             console.log(result)
@@ -1968,6 +1977,9 @@
                 entrance_id9 = `690${ent_9}`;
             } else {
                 return alert('请选择危局强袭战格式');
+            }
+            if (avatar() === false) {
+                return;
             }
             const text = `.{
     .hadal_entrance_list = .{
