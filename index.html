@@ -10,17 +10,13 @@
 </style>
 
 <head>
-    <label>当前版本为4.5</label></br>
+    <label>当前版本为4.6</label></br>
     <label>
         这个网站会随时更新，所以记得常看
         <a class="update-link" href="https://github.com/onodera2007/html2/releases" target="_blank">更新</a>
         了什么！
     </label>
     <br />
-    <input type="file" id="fileInput" accept=".zon" /></br>
-    <label>把游戏的zon文件上传到这里,然后点击“</label>
-    <button onclick="run()">上传并转换</button>
-    <label>”</label></br>
     <label for="1etn">保存</label><br>
     <button onclick="save()">保存</button><br>
     <label for="1etn">剧变节点格式</label><br>
@@ -53,6 +49,1618 @@
         <option value="201">201</option>
         <option value="211">211</option>
     </select><br>
+    <label>创建自定义代理人</label><br>
+    <button id="createBtn">创建自定义代理人</button>
+    <div id="container"></div>
+    <!-- 隐藏的模板 -->
+    <template id="inputTemplate">
+        <div class="input-group">
+            <label for="Avatar">代理人</label>
+            <select id="Avatar" name="Avatar" type="Avatar" data-type="text1">
+                <option value="1011">安比</option>
+                <option value="1021">猫又</option>
+                <option value="1031">妮可</option>
+                <option value="1041">「11号」</option>
+                <option value="1051">伊德海莉</option>
+                <option value="1061">可琳</option>
+                <option value="1071">凯撒</option>
+                <option value="1081">比利</option>
+                <option value="1091">雅</option>
+                <option value="1101">珂蕾妲</option>
+                <option value="1111">安东</option>
+                <option value="1121">本</option>
+                <option value="1131">苍角</option>
+                <option value="1141">莱卡恩</option>
+                <option value="1151">露西</option>
+                <option value="1161">莱特</option>
+                <option value="1171">柏妮思</option>
+                <option value="1181">格莉丝</option>
+                <option value="1191">艾莲</option>
+                <option value="1201">悠真</option>
+                <option value="1211">丽娜</option>
+                <option value="1221">柳</option>
+                <option value="1241">朱鸢</option>
+                <option value="1251">青衣</option>
+                <option value="1261">简</option>
+                <option value="1271">赛斯</option>
+                <option value="1281">派派</option>
+                <option value="1291">雨果</option>
+                <option value="1301">奥菲丝&amp;「鬼火」</option>
+                <option value="1311">耀嘉音</option>
+                <option value="1321">伊芙琳</option>
+                <option value="1331">薇薇安</option>
+                <option value="1351">波可娜</option>
+                <option value="1361">「扳机」</option>
+                <option value="1371">仪玄</option>
+                <option value="1381">零号·安比</option>
+                <option value="1391">橘福福</option>
+                <option value="1401">爱丽丝</option>
+                <option value="1411">柚叶</option>
+                <option value="1421">潘引壶</option>
+                <option value="1441">狛野真斗</option>
+                <option value="1451">卢西娅</option>
+                <option value="1461">席德</option>
+            </select>
+            <label for="AvatarLvUp">代理人等级</label>
+            <select id="AvatarLvUp" name="AvatarLvUp" data-type="text2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+                <option value="60">60</option>
+            </select>
+            <label for="AvatarTalentUp">影画</label>
+            <select id="AvatarTalentUp" name="AvatarTalentUp" data-type="text3">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <label for="engine">武器名称</label>
+            <select id="engine" name="engine" data-type="text4">
+                <option value="14102">钢铁肉垫</option>
+                <option value="14104">硫磺石</option>
+                <option value="14107">奔袭獠牙</option>
+                <option value="14109">霰落星殿</option>
+                <option value="14110">燃狱齿轮</option>
+                <option value="14114">拘缚者</option>
+                <option value="14116">焰心桂冠</option>
+                <option value="14117">灼心摇壶</option>
+                <option value="14118">嵌合编译器</option>
+                <option value="14119">深海访客</option>
+                <option value="14120">残心青囊</option>
+                <option value="14121">啜泣摇篮</option>
+                <option value="14122">时流贤者</option>
+                <option value="14124">防暴者Ⅵ型</option>
+                <option value="14125">玉壶青冰</option>
+                <option value="14126">淬锋钳刺</option>
+                <option value="14129">千面日陨</option>
+                <option value="14130">嚣枪喧焰</option>
+                <option value="14131">玲珑妆匣</option>
+                <option value="14132">心弦夜响</option>
+                <option value="14133">飞鸟星梦</option>
+                <option value="14136">索魂影眸</option>
+                <option value="14137">青溟笼舍</option>
+                <option value="14138">牺牲洁纯</option>
+                <option value="14139">福虓炉炉</option>
+                <option value="14140">十方锻星</option>
+                <option value="14141">狸法七变化</option>
+                <option value="14146">机巧心种</option>
+                <option value="13001">街头巨星</option>
+                <option value="13002">时光切片</option>
+                <option value="13003">雨林饕客</option>
+                <option value="13004">星徽引擎</option>
+                <option value="13005">人为刀俎</option>
+                <option value="13006">贵重骨核</option>
+                <option value="13007">正版变身器</option>
+                <option value="13008">双生泣星</option>
+                <option value="13009">触电唇彩</option>
+                <option value="13010">兔能环</option>
+                <option value="13011">春日融融</option>
+                <option value="13012">幻变魔方</option>
+                <option value="13013">鎏金花信</option>
+                <option value="13014">电波漫步</option>
+                <option value="13015">强音热望</option>
+                <option value="13016">光影刻刀</option>
+                <option value="13101">德玛拉电池Ⅱ型</option>
+                <option value="13103">聚宝箱</option>
+                <option value="13106">家政员</option>
+                <option value="13108">仿制星徽引擎</option>
+                <option value="13111">旋钻机-赤轴</option>
+                <option value="13112">比格气缸</option>
+                <option value="13113">含羞恶面</option>
+                <option value="13115">好斗的阿炮</option>
+                <option value="13127">维序者-特化型</option>
+                <option value="13128">轰鸣座驾</option>
+                <option value="13135">裁纸刀</option>
+                <option value="13142">震元奇枢</option>
+                <option value="13144">狛野真斗专武</option>
+                <option value="14001">加农转子</option>
+                <option value="14002">逍遥游球</option>
+                <option value="14003">左轮转子</option>
+                <option value="14105">海妖摇篮</option>
+                <option value="14145">铸梦炉歌</option>
+                <option value="12001">「月相」-望</option>
+                <option value="12002">「月相」-晦</option>
+                <option value="12003">「月相」-朔</option>
+                <option value="12004">「残响」-Ⅰ型</option>
+                <option value="12005">「残响」-Ⅱ型</option>
+                <option value="12006">「残响」-Ⅲ型</option>
+                <option value="12007">「湍流」-铳型</option>
+                <option value="12008">「湍流」-矢型</option>
+                <option value="12009">「湍流」-斧型</option>
+                <option value="12010">「电磁暴」-壹式</option>
+                <option value="12011">「电磁暴」-贰式</option>
+                <option value="12012">「电磁暴」-叁式</option>
+                <option value="12013">「恒等式」-本格</option>
+                <option value="12014">「恒等式」-变格</option>
+                <option value="12015">「灰烬」-钴蓝</option>
+            </select>
+            <label for="engine_level">武器等级</label>
+            <select id="engine_level" name="engine_level" data-type="text5">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+                <option value="60">60</option>
+            </select>
+            <label for="engine_refine_level">武器精炼等级</label>
+            <select id="engine_refine_level" name="engine_refine_level" data-type="text6">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <h2>1号盘</h2>
+            <select id="drive" name="drive" data-type="text7">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text8">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text9">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text10">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text11">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text12">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text13">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text14">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text15">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text16">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text17">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text18">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <h2>2号盘</h2>
+            <select id="drive" name="drive" data-type="text19">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text20">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text21">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text22">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text23">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text24">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text25">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text26">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text27">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text28">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text29">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text30">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <h2>3号盘</h2>
+            <select id="drive" name="drive" data-type="text31">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text32">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text33">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text34">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text35">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text36">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text37">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text38">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text39">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text40">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text41">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text42">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <h2>4号盘</h2>
+            <select id="drive" name="drive" data-type="text43">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text44">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text45">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text46">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text47">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text48">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text49">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text50">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text51">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text52">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text53">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text54">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <h2>5号盘</h2>
+            <select id="drive" name="drive" data-type="text55">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text56">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text57">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text58">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text59">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text60">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text61">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text62">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text63">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text64">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text65">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text66">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <h2>6号盘</h2>
+            <select id="drive" name="drive" data-type="text67">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text68">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text69">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text70">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text71">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text72">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text73">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text74">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text75">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text76">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text77">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text78">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select><br>
+            <button class="deleteBtn">删除</button><br>
+        </div>
+    </template>
+    <label>创建自定义武器</label><br>
+    <button id="createBtn1">创建自定义武器</button>
+    <div id="container1"></div>
+    <!-- 隐藏的模板 -->
+    <template id="inputTemplate1">
+        <div class="input-group">
+            <label for="engine">武器名称</label>
+            <select id="engine" name="engine" data-type="text79">
+                <option value="14102">钢铁肉垫</option>
+                <option value="14104">硫磺石</option>
+                <option value="14107">奔袭獠牙</option>
+                <option value="14109">霰落星殿</option>
+                <option value="14110">燃狱齿轮</option>
+                <option value="14114">拘缚者</option>
+                <option value="14116">焰心桂冠</option>
+                <option value="14117">灼心摇壶</option>
+                <option value="14118">嵌合编译器</option>
+                <option value="14119">深海访客</option>
+                <option value="14120">残心青囊</option>
+                <option value="14121">啜泣摇篮</option>
+                <option value="14122">时流贤者</option>
+                <option value="14124">防暴者Ⅵ型</option>
+                <option value="14125">玉壶青冰</option>
+                <option value="14126">淬锋钳刺</option>
+                <option value="14129">千面日陨</option>
+                <option value="14130">嚣枪喧焰</option>
+                <option value="14131">玲珑妆匣</option>
+                <option value="14132">心弦夜响</option>
+                <option value="14133">飞鸟星梦</option>
+                <option value="14136">索魂影眸</option>
+                <option value="14137">青溟笼舍</option>
+                <option value="14138">牺牲洁纯</option>
+                <option value="14139">福虓炉炉</option>
+                <option value="14140">十方锻星</option>
+                <option value="14141">狸法七变化</option>
+                <option value="14146">机巧心种</option>
+                <option value="13001">街头巨星</option>
+                <option value="13002">时光切片</option>
+                <option value="13003">雨林饕客</option>
+                <option value="13004">星徽引擎</option>
+                <option value="13005">人为刀俎</option>
+                <option value="13006">贵重骨核</option>
+                <option value="13007">正版变身器</option>
+                <option value="13008">双生泣星</option>
+                <option value="13009">触电唇彩</option>
+                <option value="13010">兔能环</option>
+                <option value="13011">春日融融</option>
+                <option value="13012">幻变魔方</option>
+                <option value="13013">鎏金花信</option>
+                <option value="13014">电波漫步</option>
+                <option value="13015">强音热望</option>
+                <option value="13016">光影刻刀</option>
+                <option value="13101">德玛拉电池Ⅱ型</option>
+                <option value="13103">聚宝箱</option>
+                <option value="13106">家政员</option>
+                <option value="13108">仿制星徽引擎</option>
+                <option value="13111">旋钻机-赤轴</option>
+                <option value="13112">比格气缸</option>
+                <option value="13113">含羞恶面</option>
+                <option value="13115">好斗的阿炮</option>
+                <option value="13127">维序者-特化型</option>
+                <option value="13128">轰鸣座驾</option>
+                <option value="13135">裁纸刀</option>
+                <option value="13142">震元奇枢</option>
+                <option value="14001">加农转子</option>
+                <option value="14002">逍遥游球</option>
+                <option value="14003">左轮转子</option>
+                <option value="12001">「月相」-望</option>
+                <option value="12002">「月相」-晦</option>
+                <option value="12003">「月相」-朔</option>
+                <option value="12004">「残响」-Ⅰ型</option>
+                <option value="12005">「残响」-Ⅱ型</option>
+                <option value="12006">「残响」-Ⅲ型</option>
+                <option value="12007">「湍流」-铳型</option>
+                <option value="12008">「湍流」-矢型</option>
+                <option value="12009">「湍流」-斧型</option>
+                <option value="12010">「电磁暴」-壹式</option>
+                <option value="12011">「电磁暴」-贰式</option>
+                <option value="12012">「电磁暴」-叁式</option>
+                <option value="12013">「恒等式」-本格</option>
+                <option value="12014">「恒等式」-变格</option>
+                <option value="12015">「灰烬」-钴蓝</option>
+            </select><br>
+            <label for="engine_level">武器等级</label>
+            <select id="engine_level" name="engine_level" data-type="text80">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+                <option value="60">60</option>
+            </select><br>
+            <label for="engine_refine_level">武器精炼等级</label>
+            <select id="engine_refine_level" name="engine_refine_level" data-type="text81">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <button class="deleteBtn1">删除</button><br>
+        </div>
+    </template>
+    <label>创建自定义驱动盘</label><br>
+    <button id="createBtn2">创建自定义驱动盘</button>
+    <div id="container2"></div>
+    <!-- 隐藏的模板 -->
+    <template id="inputTemplate2">
+        <div class="input-group">
+            <label for="drive">驱动盘</label>
+            <select id="drive" name="drive" data-type="text82">
+                <option value="310">啄木鸟电音（暴击）</option>
+                <option value="311">河豚电音（穿透）</option>
+                <option value="312">震星迪斯科（冲击）</option>
+                <option value="313">自由蓝调（异常精通）</option>
+                <option value="314">激素朋克（攻击）</option>
+                <option value="315">灵魂摇滚（防御）</option>
+                <option value="316">摇摆爵士（能量）</option>
+                <option value="318">混沌爵士（异常精通）</option>
+                <option value="319">原始朋克（防御）</option>
+                <option value="322">炎狱重金属（火）</option>
+                <option value="323">混沌重金属（以太）</option>
+                <option value="324">雷暴重金属（电）</option>
+                <option value="325">极地重金属（冰）</option>
+                <option value="326">獠牙重金属（物理）</option>
+                <option value="327">折枝剑歌（暴击伤害）</option>
+                <option value="328">静听嘉音（攻击）</option>
+                <option value="329">如影相随（追加攻击）</option>
+                <option value="330">法厄同之歌（异常掌控）</option>
+                <option value="331">云岿如我（生命）</option>
+                <option value="332">山大王（失衡值）</option>
+                <option value="333">拂晓生花（普通攻击）</option>
+                <option value="334">月光骑士颂（能量）</option>
+            </select>
+            <br>
+            <label for="drive_rarity">驱动盘稀有度</label>
+            <select id="drive_rarity" name="drive_rarity" data-type="text83">
+                <option value="2">B</option>
+                <option value="3">A</option>
+                <option value="4">S</option>
+            </select>
+            <br>
+            <label for="drive_level">驱动盘等级</label>
+            <select id="drive_level" name="drive_level" data-type="text84">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <br>
+            <label for="drive_number">驱动盘槽位</label>
+            <select id="drive_number" name="drive_number" data-type="text85">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br>
+            <label for="Main_stat">主属性</label>
+            <select id="Main_stat" name="Main_stat" data-type="text86">
+                <option value="HP">生命值(1)</option>
+                <option value="ATK">攻击力(2)</option>
+                <option value="DEF">防御力(3)</option>
+                <option value="HP%">生命值百分比(4-6)</option>
+                <option value="ATK%">攻击力百分比(4-6)</option>
+                <option value="DEF%">防御力百分比(4-6)</option>
+                <option value="AP">异常精通(4)</option>
+                <option value="CD">暴击伤害(4)</option>
+                <option value="CR">暴击率(4)</option>
+                <option value="PEN%">穿透率(5)</option>
+                <option value="El">电属性伤害加成(5)</option>
+                <option value="Et">以太属性伤害加成(5)</option>
+                <option value="Fi">火属性伤害加成(5)</option>
+                <option value="Ic">冰属性伤害加成(5)</option>
+                <option value="Ph">物理伤害加成(5)</option>
+                <option value="AM">异常掌控(6)</option>
+                <option value="ER">能量自动恢复(6)</option>
+                <option value="I">冲击力(6)</option>
+            </select>
+            <br>
+            <label for="Sub_stat1">副属性1</label>
+            <select id="Sub_stat1" name="Sub_stat1" data-type="text87">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level1">副属性等级1</label>
+            <select id="Sub_level1" name="Sub_level1" data-type="text88">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat2">副属性2</label>
+            <select id="Sub_stat2" name="Sub_stat2" data-type="text89">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level2">副属性等级2</label>
+            <select id="Sub_level2" name="Sub_level2" data-type="text90">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat3">副属性3</label>
+            <select id="Sub_stat3" name="Sub_stat3" data-type="text91">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level3">副属性等级3</label>
+            <select id="Sub_level3" name="Sub_level3" data-type="text92">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <label for="Sub_stat4">副属性4</label>
+            <select id="Sub_stat4" name="Sub_stat4" data-type="text93">
+                <option value="HP">生命值</option>
+                <option value="ATK">攻击力</option>
+                <option value="DEF">防御力</option>
+                <option value="HP%">生命值百分比</option>
+                <option value="ATK%">攻击力百分比</option>
+                <option value="DEF%">防御力百分比</option>
+                <option value="PEN">穿透值</option>
+                <option value="AP">异常精通</option>
+                <option value="CD">暴击伤害</option>
+                <option value="CR">暴击率</option>
+            </select>
+            <label for="Sub_level4">副属性等级4</label>
+            <select id="Sub_level4" name="Sub_level4" data-type="text94">
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+                <option value="5">4</option>
+                <option value="6">5</option>
+            </select>
+            <br>
+            <button class="deleteBtn2">删除</button>
+        </div>
+    </template>
     <script>
         let formattedContent = "";
         const etn1Radios = document.getElementsByName('1etn');
@@ -65,6 +1673,253 @@
         const ent_sec1_2 = document.getElementById('ent_sec1-2');
         const ent_sec9_1 = document.getElementById('ent_sec9-1');
         const ent_sec9_2 = document.getElementById('ent_sec9-2');
+        document.getElementById('createBtn').addEventListener('click', function () {
+            const template = document.getElementById('inputTemplate');
+            const clone = template.content.cloneNode(true);
+
+            // 为删除按钮添加事件
+            clone.querySelector('.deleteBtn').addEventListener('click', function () {
+                this.parentElement.remove();
+            });
+
+            document.getElementById('container').appendChild(clone);
+        });
+        document.getElementById('createBtn1').addEventListener('click', function () {
+            const template = document.getElementById('inputTemplate1');
+            const clone = template.content.cloneNode(true);
+
+            // 为删除按钮添加事件
+            clone.querySelector('.deleteBtn1').addEventListener('click', function () {
+                this.parentElement.remove();
+            });
+
+            document.getElementById('container1').appendChild(clone);
+        });
+        document.getElementById('createBtn2').addEventListener('click', function () {
+            const template = document.getElementById('inputTemplate2');
+            const clone = template.content.cloneNode(true);
+
+            // 为删除按钮添加事件
+            clone.querySelector('.deleteBtn2').addEventListener('click', function () {
+                this.parentElement.remove();
+            });
+
+            document.getElementById('container2').appendChild(clone);
+        });
+        const statIds = {
+            "HP": "11103",
+            "HP%": "11102",
+            "ATK": "12103",
+            "ATK%": "12102",
+            "DEF": "13103",
+            "DEF%": "13102",
+            "PEN": "23203",
+            "PEN%": "23103",
+            "AM": "31402",
+            "AP": "31203",
+            "CD": "21103",
+            "CR": "20103",
+            "ER": "30502",
+            "I": "12202",
+            "El": "31803",
+            "Et": "31903",
+            "Fi": "31603",
+            "Ic": "31703",
+            "Ph": "31503"
+        };
+
+        const mainStatValues = {
+            "HP": 550,
+            "ATK": 79,
+            "DEF": 46,
+            "HP%": 750,
+            "ATK%": 750,
+            "DEF%": 1200,
+            "PEN%": 600,
+            "AM": 750,
+            "AP": 23,
+            "CD": 1200,
+            "CR": 600,
+            "ER": 1500,
+            "I": 450,
+            "El": 750,
+            "Et": 750,
+            "Fi": 750,
+            "Ic": 750,
+            "Ph": 750
+        };
+
+        const subStatValues = {
+            "HP": 112,
+            "ATK": 19,
+            "DEF": 15,
+            "HP%": 300,
+            "ATK%": 300,
+            "DEF%": 480,
+            "PEN": 9,
+            "AP": 9,
+            "CD": 480,
+            "CR": 240
+        };
+        //代理人
+        function avatar() {
+            const maxIndex = 78; // 假设有 text1 ~ text78
+            const columns = [];
+            let rowCount = 0;
+            // 逐列收集
+            for (let i = 1; i <= maxIndex; i++) {
+                const elements = document.querySelectorAll(`#container [data-type="text${i}"]`);
+                const values = Array.from(elements).map(el => el.value.trim());
+                columns.push(values);
+                for (let i = 0; i < columns.length; i++) {
+                    columns[i] = columns[i].map(val => statIds[val] || val);
+                }
+                const firstColumn = columns[0]; // 第一列，也就是 text1
+                //rowCount到后面会变成能创造多少个.{}
+                rowCount = firstColumn.length;
+                value = columns
+            }
+            let j = 0;
+            let result = ".avatar_overrides = .{\n";
+            for (j = 0; j < rowCount; j++) {
+                result += "  .{\n";
+                result += `    .id = ${columns[0][j]},\n`;
+                result += `    .level = ${columns[1][j]},\n`;
+                result += `    .unlocked_talent_num = ${columns[2][j] || 0},\n`;
+                result += "    .weapon = .{\n";
+                result += `      .id = ${columns[3][j]},\n`;
+                result += `      .level = ${columns[4][j] || 1},\n`;
+                result += `      .star = ${star(columns[4][j] || 0)},\n`;
+                result += `      .refine_level = ${columns[5][j] || 0},\n`; // X 后面处理
+                result += "    },\n";
+                result += "    .equipment = .{\n";
+
+                // 六个盘
+                for (let i = 0; i <= 5; i++) {
+                    result += `      .{ ${i}, .{\n`;
+                    result += `        .id = ${columns[6 + (i * 12)][j]}${columns[7 + (i * 12)][j]}${i},\n`;
+                    result += `        .level = ${columns[8 + (i * 12)][j]},\n`;
+                    result += `        .star = 0,\n`;
+                    result += "        .properties = .{\n";
+                    result += `          .{${columns[9 + (i * 12)][j]},${Main(columns[9 + (i * 12)][j])},0},\n`; // X 后面处理
+                    result += "        },\n";
+                    result += "        .sub_properties = .{\n";
+                    result += `          .{${columns[10 + (i * 12)][j]},${SabMain(columns[10 + (i * 12)][j])},${columns[11 + (i * 12)][j]}},\n`;
+                    result += `          .{${columns[12 + (i * 12)][j]},${SabMain(columns[12 + (i * 12)][j])},${columns[13 + (i * 12)][j]}},\n`;
+                    result += `          .{${columns[14 + (i * 12)][j]},${SabMain(columns[14 + (i * 12)][j])},${columns[15 + (i * 12)][j]}},\n`;
+                    result += `          .{${columns[16 + (i * 12)][j]},${SabMain(columns[16 + (i * 12)][j])},${columns[17 + (i * 12)][j]}},\n`;
+                    result += "        },\n";
+                    if (i < 5) {
+                        result += "      }, },\n";
+                    } else {
+                        result += "      }, }\n";
+                    }
+                }
+
+                result += "    },\n"; // equipment
+                result += "  },\n"; // avatar_overrides 子对象结束
+                
+            }
+            result += "},\n";
+            console.log(result)
+            return result;
+        };
+        //音擎
+        function engine() {
+            const maxIndex = 81; // 假设有 text79 ~ text81
+            const columns = [];
+
+            for (let i = 79; i <= maxIndex; i++) {
+                const elements = document.querySelectorAll(`#container1 [data-type="text${i}"]`);
+                const values = Array.from(elements).map(el => el.value.trim());
+                columns.push(values);
+                const firstColumn = columns[0]; // 第一列，也就是 text1
+                //rowCount到后面会变成能创造多少个.{}
+                rowCount = firstColumn.length;
+                value = columns
+            }
+            console.log(columns);
+            let result = ".weapons = .{\n";
+            for (let j = 0; j < rowCount; j++) {
+                result += "  .{\n";
+                result += `    .id = ${columns[0][j]},\n`;
+                result += `    .level = ${columns[1][j]},\n`;
+                result += `    .star = ${star(columns[1][j])},\n`;
+                result += `    .refine_level = ${columns[2][j] || 0},\n`;
+                result += "    }\n";
+            }
+            result += "},";
+            console.log(result)
+            return result;
+        };
+        //驱动盘
+        function desc() {
+            const maxIndex = 94;
+            const columns = [];
+            for (let i = 82; i <= maxIndex; i++) {
+                const elements = document.querySelectorAll(`#container2 [data-type="text${i}"]`);
+                const values = Array.from(elements).map(el => el.value.trim());
+                columns.push(values);
+                for (let i = 0; i < columns.length; i++) {
+                    columns[i] = columns[i].map(val => statIds[val] || val);
+                }
+                const firstColumn = columns[0];
+                rowCount = firstColumn.length;
+                value = columns
+            }
+            let result = ".equipments = .{\n";
+            for (let j = 0; j < rowCount; j++) {
+                result += "  .{\n";
+                result += `    .id = ${columns[0][j]}${columns[1][j]}${columns[3][j]},\n`;
+                result += `    .level = ${columns[2][j]},\n`;
+                result += `    .properties = .{\n`;
+                result += `          .{${columns[4][j]},${Main(columns[4][j])},0},\n`; // X 后面处理
+                result += `        },\n`;
+                result += `    .sub_properties = .{\n`;
+                result += `          .{${columns[5][j]},${SabMain(columns[5][j])},${columns[6][j]}},\n`;
+                result += `          .{${columns[7][j]},${SabMain(columns[7][j])},${columns[8][j]}},\n`;
+                result += `          .{${columns[9][j]},${SabMain(columns[9][j])},${columns[10][j]}},\n`;
+                result += `          .{${columns[11][j]},${SabMain(columns[11][j])},${columns[12][j]}},\n`;
+                result += "        },\n";
+                result += "    },\n";
+            }
+            result += "},";
+            console.log(result)
+            return result;
+        };
+        function star(level) {
+            if (level >= 0 && level <= 10) return 0;//等级上限为10
+            if (level >= 11 && level <= 20) return 1;//等级上限为20
+            if (level >= 21 && level <= 30) return 2;//等级上限为30
+            if (level >= 31 && level <= 40) return 3;//等级上限为40
+            if (level >= 41 && level <= 50) return 4;// 等级上限为50
+            if (level >= 51 && level <= 60) return 5;// 等级上限为60
+            return -1; // 无效等级
+        }
+        function Main(value) {
+            // 找出 statIds 中对应的 key
+            const statKey = Object.keys(statIds).find(key => statIds[key] === value);
+
+            if (!statKey) {
+                console.error("未知的输入值:", value);
+                return null;
+            }
+
+            // 返回 mainStatValues 对应的数值
+            return mainStatValues[statKey];
+        }
+        function SabMain(value) {
+            // 找到 statIds 的 key（比如 HP、ATK...）
+            const key = Object.keys(statIds).find(k => statIds[k] === value);
+
+            // 如果 key 存在并且 subStatValues 里有对应的值
+            if (key && subStatValues[key] !== undefined) {
+                return subStatValues[key];
+            }
+
+            // 没有对应则返回 null 或 ""
+            return null;
+        }
         function save() {
 
             let selectedEtn1Value;
@@ -125,13 +1980,10 @@
         //危局强袭战!                                          
         .{ .entrance_id = 9, .zone_id = ${entrance_id9} },
     },
-    .avatar_overrides = .{                                          
-    },
-    .weapons = .{                                          
-    },
-    .equipment = .{                                            
-    },
-}
+    ${avatar()}
+    ${engine()}                                       
+    ${desc()}
+        }
             `;
             const blob = new Blob([text], { type: 'text/plain' });
             const link = document.createElement('a');
@@ -140,99 +1992,6 @@
             // 触发下载
             link.click();
 
-        }
-        async function run() {
-            try {
-                // 等待文件读取完成
-                const fileContent = await uploadButton();
-                // 转换
-                formattedContent = FormatConversion(fileContent);
-                // 保存到全局变量
-                window.now = formattedContent;
-                console.log("Formatted content:", formattedContent);
-                console.log("Formatted content saved to window.now");
-            } catch (error) {
-                console.error("Error:", error);
-            }
-            const regex = /\.entrance_id\s*=\s*(1|9),\s*\.zone_id\s*=\s*(\d+)/g;
-            let match;
-
-            let temp = {}; // 临时对象
-            while ((match = regex.exec(formattedContent)) !== null) {
-                temp[`entrance_${match[1]}`] = Number(match[2]);
-            }
-            // 用解构赋值直接生成常量
-            const { entrance_1, entrance_9 } = temp;
-            etn1Radios.value = entrance_1.toString().slice(-2);
-            etn9Radios.value = entrance_9.toString().slice(-2);
-            const numPart1 = parseInt((entrance_1), 10).toString().slice(3); // 提取 "620" 之后的部分
-            const num1 = parseInt(numPart1, 10); // 转成数字
-            // 3. 检查数字是否在 1-21 范围内
-            if (num1 >= 1 && num1 <= 32) {
-                // 普通格式
-                ent_sec1_1.checked = true;
-                ent1_1.value = num1;
-                // 更新输入框的值
-            } else {
-                ent_sec1_2.checked = true;
-                ent1_2.value = num1;
-                // 更新下拉框的值
-                // 特殊格式
-            }
-            const numPart2 = parseInt((entrance_9), 10).toString().slice(3); // 提取 "620" 之后的部分
-            const num2 = parseInt(numPart2, 10); // 转成数字
-            // 3. 检查数字是否在 1-21 范围内
-            if (num2 >= 1 && num2 <= 21) {
-                ent_sec9_1.checked = true;
-                ent9_1.value = num2;
-                // 更新输入框的值
-                // 普通格式
-            } else {
-                ent_sec9_2.checked = true;
-
-                ent9_2.value = num2;
-                // 特殊格式
-            }
-        }
-
-        function uploadButton() {
-            return new Promise((resolve, reject) => {
-                const fileInput = document.getElementById('fileInput');
-
-                if (!fileInput.files.length) {
-                    reject("No file selected");
-                    return;
-                }
-
-                const file = fileInput.files[0];
-                const reader = new FileReader();
-
-                reader.onload = (e) => resolve(e.target.result);
-                reader.onerror = () => reject("File reading failed");
-
-                reader.readAsText(file);
-            });
-        }
-
-        function FormatConversion(fileText) {
-            function formatConfigText(rawText) {
-                if (typeof rawText !== "string") {
-                    throw new Error("fileText 必须是字符串");
-                }
-
-                // 1. 统一换行符为 \n
-                let formatted = rawText.replace(/\r\n/g, '\n');
-
-                // 2. 移除行尾空格
-                formatted = formatted.replace(/ +$/gm, '');
-
-                // 3. 保留两行以内的空行
-                formatted = formatted.replace(/\n{3,}/g, '\n\n');
-
-                return formatted;
-            }
-
-            return formatConfigText(fileText);
         }
     </script>
 </head>
