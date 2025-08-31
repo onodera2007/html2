@@ -10,15 +10,95 @@
 </style>
 
 <head>
-    <label>当前版本为4.6fix2</label></br>
-    <label>
+    <script>
+        //备份代码
+        const storageKey = "globalFormData";
+
+        // 保存函数（全局）
+        function saveAll() {
+            let data = {};
+            document.querySelectorAll("input, select, textarea").forEach(el => {
+                if (el.id) {  // 必须要有 id 作为 key
+                    data[el.id] = el.value;
+                }
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+            console.log("已保存：", data);
+        }
+
+        // 加载函数（全局）
+        function loadAll() {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(key => {
+                    const el = document.getElementById(key);
+                    if (el) el.value = data[key];
+                });
+                console.log("已加载：", data);
+            }
+        }
+
+        // 输入时自动保存
+        document.addEventListener("input", saveAll);
+
+        // 页面加载时恢复
+        window.addEventListener("DOMContentLoaded", loadAll);
+    </script>
+    <script>
+        //翻译代码
+        const dicts = {
+            zh: {
+                "save": "保存至.zon格式",
+                "version": "当前版本为4.7",
+                "title1": "这个网站会随时更新，所以记得常看",
+                "title2": "更新",
+                "title3": "了什么！"
+            },
+            en: {
+                "save": "Save to .zon format",
+                "version": "The current version is 4.7",
+                "title1": "This website will be updated regularly, so remember to check the",
+                "title2": "Updates",
+                "title3": "section often."
+            }
+        };
+
+        // 根据语言加载翻译
+        function loadLang(lang) {
+            const dict = dicts[lang];
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (dict[key]) el.textContent = dict[key];
+            });
+            // 保存用户选择的语言
+            localStorage.setItem("lang", lang);
+        }
+
+        // 页面加载时，读取上次保存的语言，没有的话默认中文
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("lang") || "zh";
+            loadLang(savedLang);
+        });
+
+        // 示例：切换语言按钮
+        function switchLang(lang) {
+            loadLang(lang);
+        }
+    </script>
+    <label data-i18n="version">当前版本为4.7</label></br>
+    <label data-i18n="title1">
         这个网站会随时更新，所以记得常看
-        <a class="update-link" href="https://github.com/onodera2007/html2/releases" target="_blank">更新</a>
+    </label>
+    <a data-i18n="title2" class="update-link" href="https://github.com/onodera2007/html2/releases"
+        target="_blank">更新</a>
+    <label data-i18n="title3">
         了什么！
     </label>
     <br />
-    <label for="1etn">保存</label><br>
-    <button onclick="save()">保存</button><br>
+    <button onclick="switchLang('zh')">中文</button>
+    <button onclick="switchLang('en')">English</button><br>
+    <button onclick="save()" data-i18n="save">保存至.zon格式</button><br>
     <label for="1etn">剧变节点格式</label><br>
     <input type="radio" name="1etn" id="ent_sec1-1" value="1">普通<br>
     <input type="radio" name="1etn" id="ent_sec1-2" value="2">特殊<br>
@@ -1662,50 +1742,71 @@
         </div>
     </template>
     <script>
-        let formattedContent = "";
         const etn1Radios = document.getElementsByName('1etn');
         const etn9Radios = document.getElementsByName('9etn');
-        const ent1_1 = document.getElementById('ent1-1');
-        const ent1_2 = document.getElementById('ent1-1');
-        const ent9_1 = document.getElementById('ent9-1');
-        const ent9_2 = document.getElementById('ent9-2');
-        const ent_sec1_1 = document.getElementById('ent_sec1-1');
-        const ent_sec1_2 = document.getElementById('ent_sec1-2');
-        const ent_sec9_1 = document.getElementById('ent_sec9-1');
-        const ent_sec9_2 = document.getElementById('ent_sec9-2');
-        document.getElementById('createBtn').addEventListener('click', function () {
-            const template = document.getElementById('inputTemplate');
-            const clone = template.content.cloneNode(true);
+        function setupCreateButton(createBtnId, templateId, containerId, deleteBtnClass, storageKey) {
+            const createBtn = document.getElementById(createBtnId);
+            const container = document.getElementById(containerId);
 
-            // 为删除按钮添加事件
-            clone.querySelector('.deleteBtn').addEventListener('click', function () {
-                this.parentElement.remove();
+            // 渲染一个新表单块
+            function renderBlock(data = {}) {
+                const template = document.getElementById(templateId);
+                const clone = template.content.cloneNode(true);
+
+                // 填充数据（如果有）
+                Object.keys(data).forEach(key => {
+                    const el = clone.querySelector(`[name="${key}"]`);
+                    if (el) el.value = data[key];
+                });
+
+                // 删除按钮
+                clone.querySelector(`.${deleteBtnClass}`).addEventListener('click', function () {
+                    this.parentElement.remove();
+                    saveData();
+                });
+
+                // 输入时保存
+                clone.querySelectorAll("input, select, textarea").forEach(el => {
+                    el.addEventListener("input", saveData);
+                });
+
+                container.appendChild(clone);
+            }
+
+            // 保存到 localStorage
+            function saveData() {
+                const blocks = [];
+                container.querySelectorAll("div").forEach(block => {
+                    const data = {};
+                    block.querySelectorAll("input, select, textarea").forEach(el => {
+                        if (el.name) data[el.name] = el.value;
+                    });
+                    if (Object.keys(data).length > 0) blocks.push(data);
+                });
+                localStorage.setItem(storageKey, JSON.stringify(blocks));
+            }
+
+            // 从 localStorage 加载
+            function loadData() {
+                const saved = localStorage.getItem(storageKey);
+                if (saved) {
+                    JSON.parse(saved).forEach(data => renderBlock(data));
+                }
+            }
+
+            // 点击按钮时新增
+            createBtn.addEventListener("click", () => {
+                renderBlock();
+                saveData();
             });
 
-            document.getElementById('container').appendChild(clone);
-        });
-        document.getElementById('createBtn1').addEventListener('click', function () {
-            const template = document.getElementById('inputTemplate1');
-            const clone = template.content.cloneNode(true);
-
-            // 为删除按钮添加事件
-            clone.querySelector('.deleteBtn1').addEventListener('click', function () {
-                this.parentElement.remove();
-            });
-
-            document.getElementById('container1').appendChild(clone);
-        });
-        document.getElementById('createBtn2').addEventListener('click', function () {
-            const template = document.getElementById('inputTemplate2');
-            const clone = template.content.cloneNode(true);
-
-            // 为删除按钮添加事件
-            clone.querySelector('.deleteBtn2').addEventListener('click', function () {
-                this.parentElement.remove();
-            });
-
-            document.getElementById('container2').appendChild(clone);
-        });
+            // 初始化
+            loadData();
+        }
+        // 调用三次即可
+        setupCreateButton("createBtn", "inputTemplate", "container", "deleteBtn", "formData0");
+        setupCreateButton("createBtn1", "inputTemplate1", "container1", "deleteBtn1", "formData1");
+        setupCreateButton("createBtn2", "inputTemplate2", "container2", "deleteBtn2", "formData2");
         const statIds = {
             "HP": "11103",
             "HP%": "11102",
