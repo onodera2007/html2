@@ -18,8 +18,16 @@
         function saveAll() {
             let data = {};
             document.querySelectorAll("input, select, textarea").forEach(el => {
-                if (el.id) {  // 必须要有 id 作为 key
-                    data[el.id] = el.value;
+                if (!el.id) return; // 必须有 id
+                if (el.type === "radio") {
+                    if (el.checked) {
+                        data[el.id] = true;      // 保存当前被选中的 radio 的 id
+                        data[el.name] = el.id;   // 保存同组 radio 的选中 id
+                    }
+                } else if (el.type === "checkbox") {
+                    data[el.id] = el.checked;  // 保存勾选状态
+                } else {
+                    data[el.id] = el.value;    // 保存输入值
                 }
             });
             localStorage.setItem(storageKey, JSON.stringify(data));
@@ -31,16 +39,25 @@
             const saved = localStorage.getItem(storageKey);
             if (saved) {
                 const data = JSON.parse(saved);
-                Object.keys(data).forEach(key => {
-                    const el = document.getElementById(key);
-                    if (el) el.value = data[key];
+                document.querySelectorAll("input, select, textarea").forEach(el => {
+                    if (!el.id) return;
+                    if (el.type === "radio") {
+                        if (data[el.name] === el.id) {
+                            el.checked = true;   // 恢复同组 radio 的选中状态
+                        }
+                    } else if (el.type === "checkbox") {
+                        if (data[el.id] !== undefined) el.checked = data[el.id];
+                    } else {
+                        if (data[el.id] !== undefined) el.value = data[el.id];
+                    }
                 });
                 console.log("已加载：", data);
             }
         }
 
-        // 输入时自动保存
+        // 输入/选择时自动保存
         document.addEventListener("input", saveAll);
+        document.addEventListener("change", saveAll); // radio/select 的 change 事件也触发保存
 
         // 页面加载时恢复
         window.addEventListener("DOMContentLoaded", loadAll);
@@ -50,14 +67,14 @@
         const dicts = {
             zh: {
                 "save": "保存至.zon格式",
-                "version": "当前版本为4.7",
+                "version": "当前版本为4.7fix",
                 "title1": "这个网站会随时更新，所以记得常看",
                 "title2": "更新",
                 "title3": "了什么！"
             },
             en: {
                 "save": "Save to .zon format",
-                "version": "The current version is 4.7",
+                "version": "The current version is 4.7fix",
                 "title1": "This website will be updated regularly, so remember to check the",
                 "title2": "Updates",
                 "title3": "section often."
@@ -86,7 +103,7 @@
             loadLang(lang);
         }
     </script>
-    <label data-i18n="version">当前版本为4.7</label></br>
+    <label data-i18n="version">当前版本为4.7fix</label></br>
     <label data-i18n="title1">
         这个网站会随时更新，所以记得常看
     </label>
