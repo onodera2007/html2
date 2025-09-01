@@ -67,14 +67,14 @@
         const dicts = {
             zh: {
                 "save": "保存至.zon格式",
-                "version": "当前版本为4.7fix",
+                "version": "当前版本为4.7fix2",
                 "title1": "这个网站会随时更新，所以记得常看",
                 "title2": "更新",
                 "title3": "了什么！"
             },
             en: {
                 "save": "Save to .zon format",
-                "version": "The current version is 4.7fix",
+                "version": "The current version is 4.7fix2",
                 "title1": "This website will be updated regularly, so remember to check the",
                 "title2": "Updates",
                 "title3": "section often."
@@ -103,7 +103,7 @@
             loadLang(lang);
         }
     </script>
-    <label data-i18n="version">当前版本为4.7fix</label></br>
+    <label data-i18n="version">当前版本为4.7fix2</label></br>
     <label data-i18n="title1">
         这个网站会随时更新，所以记得常看
     </label>
@@ -151,7 +151,7 @@
     <div id="container"></div>
     <!-- 隐藏的模板 -->
     <template id="inputTemplate">
-        <div class="input-group">
+        <div class="block">
             <label for="Avatar">代理人</label>
             <select id="Avatar" name="Avatar" type="Avatar" data-type="text1">
                 <option value="1011">安比</option>
@@ -423,7 +423,7 @@
                 <option value="5">5</option>
             </select><br>
             <h2>1号盘</h2>
-            <select id="drive" name="drive" data-type="text7">
+            <select id="drive1" name="drive" data-type="text7">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -449,14 +449,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text8">
+            <select id="drive_rarity1" name="drive_rarity" data-type="text8">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text9">
+            <select id="drive_level1" name="drive_level" data-type="text9">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -475,7 +475,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text10">
+            <select id="Main_stat1" name="Main_stat" data-type="text10">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -497,7 +497,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text11">
+            <select id="Sub_stat1_1" name="Sub_stat1" data-type="text11">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -510,7 +510,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text12">
+            <select id="Sub_level1_1" name="Sub_level1" data-type="text12">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -520,7 +520,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text13">
+            <select id="Sub_stat2_1" name="Sub_stat2" data-type="text13">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -533,7 +533,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text14">
+            <select id="Sub_level2_1" name="Sub_level2" data-type="text14">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -543,7 +543,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text15">
+            <select id="Sub_stat3_1" name="Sub_stat3" data-type="text15">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -556,7 +556,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text16">
+            <select id="Sub_level3_1" name="Sub_level3" data-type="text16">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -566,7 +566,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text17">
+            <select id="Sub_stat4_1" name="Sub_stat4" data-type="text17">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -579,7 +579,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text18">
+            <select id="Sub_level4_1" name="Sub_level4" data-type="text18">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -589,7 +589,7 @@
             </select>
             <br>
             <h2>2号盘</h2>
-            <select id="drive" name="drive" data-type="text19">
+            <select id="drive2" name="drive" data-type="text19">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -615,14 +615,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text20">
+            <select id="drive_rarity2" name="drive_rarity" data-type="text20">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text21">
+            <select id="drive_level2" name="drive_level" data-type="text21">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -641,7 +641,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text22">
+            <select id="Main_stat2" name="Main_stat" data-type="text22">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -663,7 +663,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text23">
+            <select id="Sub_stat1_2" name="Sub_stat1" data-type="text23">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -676,7 +676,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text24">
+            <select id="Sub_level1_2" name="Sub_level1" data-type="text24">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -686,7 +686,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text25">
+            <select id="Sub_stat2_2" name="Sub_stat2" data-type="text25">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -699,7 +699,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text26">
+            <select id="Sub_level2_2" name="Sub_level2" data-type="text26">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -709,7 +709,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text27">
+            <select id="Sub_stat3_2" name="Sub_stat3" data-type="text27">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -722,7 +722,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text28">
+            <select id="Sub_level3_2" name="Sub_level3" data-type="text28">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -732,7 +732,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text29">
+            <select id="Sub_stat4_2" name="Sub_stat4" data-type="text29">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -745,7 +745,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text30">
+            <select id="Sub_level4_2" name="Sub_level4" data-type="text30">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -754,7 +754,7 @@
                 <option value="6">5</option>
             </select>
             <h2>3号盘</h2>
-            <select id="drive" name="drive" data-type="text31">
+            <select id="drive3" name="drive" data-type="text31">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -780,14 +780,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text32">
+            <select id="drive_rarity3" name="drive_rarity" data-type="text32">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text33">
+            <select id="drive_level3" name="drive_level" data-type="text33">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -806,7 +806,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text34">
+            <select id="Main_stat3" name="Main_stat" data-type="text34">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -828,7 +828,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text35">
+            <select id="Sub_stat1_3" name="Sub_stat1" data-type="text35">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -841,7 +841,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text36">
+            <select id="Sub_level1_3" name="Sub_level1" data-type="text36">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -851,7 +851,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text37">
+            <select id="Sub_stat2_3" name="Sub_stat2" data-type="text37">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -864,7 +864,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text38">
+            <select id="Sub_level2_3" name="Sub_level2" data-type="text38">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -874,7 +874,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text39">
+            <select id="Sub_stat3_3" name="Sub_stat3" data-type="text39">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -887,7 +887,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text40">
+            <select id="Sub_level3_3" name="Sub_level3" data-type="text40">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -897,7 +897,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text41">
+            <select id="Sub_stat4_3" name="Sub_stat4" data-type="text41">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -910,7 +910,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text42">
+            <select id="Sub_level4_3" name="Sub_level4" data-type="text42">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -919,7 +919,7 @@
                 <option value="6">5</option>
             </select>
             <h2>4号盘</h2>
-            <select id="drive" name="drive" data-type="text43">
+            <select id="drive4" name="drive" data-type="text43">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -945,14 +945,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text44">
+            <select id="drive_rarity4" name="drive_rarity" data-type="text44">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text45">
+            <select id="drive_level4" name="drive_level" data-type="text45">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -971,7 +971,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text46">
+            <select id="Main_stat4" name="Main_stat" data-type="text46">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -993,7 +993,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text47">
+            <select id="Sub_stat1_4" name="Sub_stat1" data-type="text47">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1006,7 +1006,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text48">
+            <select id="Sub_level1_4" name="Sub_level1" data-type="text48">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1016,7 +1016,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text49">
+            <select id="Sub_stat2_4" name="Sub_stat2" data-type="text49">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1029,7 +1029,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text50">
+            <select id="Sub_level2_4" name="Sub_level2" data-type="text50">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1039,7 +1039,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text51">
+            <select id="Sub_stat3_4" name="Sub_stat3" data-type="text51">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1052,7 +1052,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text52">
+            <select id="Sub_level3_4" name="Sub_level3" data-type="text52">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1062,7 +1062,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text53">
+            <select id="Sub_stat4_4" name="Sub_stat4" data-type="text53">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1075,7 +1075,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text54">
+            <select id="Sub_level4_4" name="Sub_level4" data-type="text54">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1084,7 +1084,7 @@
                 <option value="6">5</option>
             </select>
             <h2>5号盘</h2>
-            <select id="drive" name="drive" data-type="text55">
+            <select id="drive5" name="drive" data-type="text55">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -1110,14 +1110,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text56">
+            <select id="drive_rarity5" name="drive_rarity" data-type="text56">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text57">
+            <select id="drive_level5" name="drive_level" data-type="text57">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -1136,7 +1136,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text58">
+            <select id="Main_stat5" name="Main_stat" data-type="text58">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -1158,7 +1158,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text59">
+            <select id="Sub_stat1_5" name="Sub_stat1" data-type="text59">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1171,7 +1171,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text60">
+            <select id="Sub_level1_5" name="Sub_level1" data-type="text60">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1181,7 +1181,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text61">
+            <select id="Sub_stat2_5" name="Sub_stat2" data-type="text61">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1194,7 +1194,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text62">
+            <select id="Sub_level2_5" name="Sub_level2" data-type="text62">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1204,7 +1204,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text63">
+            <select id="Sub_stat3_5" name="Sub_stat3" data-type="text63">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1217,7 +1217,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text64">
+            <select id="Sub_level3_5" name="Sub_level3" data-type="text64">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1227,7 +1227,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text65">
+            <select id="Sub_stat4_5" name="Sub_stat4" data-type="text65">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1240,7 +1240,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text66">
+            <select id="Sub_level4_5" name="Sub_level4" data-type="text66">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1249,7 +1249,7 @@
                 <option value="6">5</option>
             </select>
             <h2>6号盘</h2>
-            <select id="drive" name="drive" data-type="text67">
+            <select id="drive6" name="drive" data-type="text67">
                 <option value="310">啄木鸟电音（暴击）</option>
                 <option value="311">河豚电音（穿透）</option>
                 <option value="312">震星迪斯科（冲击）</option>
@@ -1275,14 +1275,14 @@
             </select>
             <br>
             <label for="drive_rarity">驱动盘稀有度</label>
-            <select id="drive_rarity" name="drive_rarity" data-type="text68">
+            <select id="drive_rarity6" name="drive_rarity" data-type="text68">
                 <option value="2">B</option>
                 <option value="3">A</option>
                 <option value="4">S</option>
             </select>
             <br>
             <label for="drive_level">驱动盘等级</label>
-            <select id="drive_level" name="drive_level" data-type="text69">
+            <select id="drive_level6" name="drive_level" data-type="text69">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -1301,7 +1301,7 @@
             </select>
             <br>
             <label for="Main_stat">主属性</label>
-            <select id="Main_stat" name="Main_stat" data-type="text70">
+            <select id="Main_stat6" name="Main_stat" data-type="text70">
                 <option value="HP">生命值(1)</option>
                 <option value="ATK">攻击力(2)</option>
                 <option value="DEF">防御力(3)</option>
@@ -1323,7 +1323,7 @@
             </select>
             <br>
             <label for="Sub_stat1">副属性1</label>
-            <select id="Sub_stat1" name="Sub_stat1" data-type="text71">
+            <select id="Sub_stat1_6" name="Sub_stat1" data-type="text71">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1336,7 +1336,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level1">副属性等级1</label>
-            <select id="Sub_level1" name="Sub_level1" data-type="text72">
+            <select id="Sub_level1_6" name="Sub_level1" data-type="text72">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1346,7 +1346,7 @@
             </select>
             <br>
             <label for="Sub_stat2">副属性2</label>
-            <select id="Sub_stat2" name="Sub_stat2" data-type="text73">
+            <select id="Sub_stat2_6" name="Sub_stat2" data-type="text73">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1359,7 +1359,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level2">副属性等级2</label>
-            <select id="Sub_level2" name="Sub_level2" data-type="text74">
+            <select id="Sub_level2_6" name="Sub_level2" data-type="text74">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1369,7 +1369,7 @@
             </select>
             <br>
             <label for="Sub_stat3">副属性3</label>
-            <select id="Sub_stat3" name="Sub_stat3" data-type="text75">
+            <select id="Sub_stat3_6" name="Sub_stat3" data-type="text75">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1382,7 +1382,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level3">副属性等级3</label>
-            <select id="Sub_level3" name="Sub_level3" data-type="text76">
+            <select id="Sub_level3_6" name="Sub_level3" data-type="text76">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1392,7 +1392,7 @@
             </select>
             <br>
             <label for="Sub_stat4">副属性4</label>
-            <select id="Sub_stat4" name="Sub_stat4" data-type="text77">
+            <select id="Sub_stat4_6" name="Sub_stat4" data-type="text77">
                 <option value="HP">生命值</option>
                 <option value="ATK">攻击力</option>
                 <option value="DEF">防御力</option>
@@ -1405,7 +1405,7 @@
                 <option value="CR">暴击率</option>
             </select>
             <label for="Sub_level4">副属性等级4</label>
-            <select id="Sub_level4" name="Sub_level4" data-type="text78">
+            <select id="Sub_level4_6" name="Sub_level4" data-type="text78">
                 <option value="1">0</option>
                 <option value="2">1</option>
                 <option value="3">2</option>
@@ -1421,7 +1421,7 @@
     <div id="container1"></div>
     <!-- 隐藏的模板 -->
     <template id="inputTemplate1">
-        <div class="input-group">
+        <div class="block">
             <label for="engine">武器名称</label>
             <select id="engine" name="engine" data-type="text79">
                 <option value="14102">钢铁肉垫</option>
@@ -1578,7 +1578,7 @@
     <div id="container2"></div>
     <!-- 隐藏的模板 -->
     <template id="inputTemplate2">
-        <div class="input-group">
+        <div class="block">
             <label for="drive">驱动盘</label>
             <select id="drive" name="drive" data-type="text82">
                 <option value="310">啄木鸟电音（暴击）</option>
@@ -1765,26 +1765,57 @@
             const createBtn = document.getElementById(createBtnId);
             const container = document.getElementById(containerId);
 
+            // 生成唯一ID的函数
+            function generateUniqueId() {
+                return Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+            }
+
             // 渲染一个新表单块
             function renderBlock(data = {}) {
                 const template = document.getElementById(templateId);
                 const clone = template.content.cloneNode(true);
 
+                // 为每个克隆块生成唯一ID
+                const blockId = data.blockId || generateUniqueId();
+
+                // 为克隆块添加唯一标识
+                const blockElement = clone.querySelector('.block');
+                if (blockElement) {
+                    blockElement.dataset.blockId = blockId;
+                }
+
+                // 更新所有表单元素的id和name属性，添加唯一前缀
+                clone.querySelectorAll('[id]').forEach(el => {
+                    el.id = `${el.id}_${blockId}`;
+                });
+
+                clone.querySelectorAll('[name]').forEach(el => {
+                    el.name = `${el.name}_${blockId}`;
+                });
+
                 // 填充数据（如果有）
                 Object.keys(data).forEach(key => {
-                    const el = clone.querySelector(`[name="${key}"]`);
+                    if (key === 'blockId') return; // 跳过blockId
+
+                    // 查找带唯一标识的元素
+                    const el = clone.querySelector(`[name="${key}_${blockId}"]`) ||
+                        clone.querySelector(`[name="${key}"]`);
                     if (el) el.value = data[key];
                 });
 
                 // 删除按钮
-                clone.querySelector(`.${deleteBtnClass}`).addEventListener('click', function () {
-                    this.parentElement.remove();
-                    saveData();
-                });
+                const deleteBtn = clone.querySelector(`.${deleteBtnClass}`);
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function () {
+                        this.closest('.block').remove();
+                        saveData();
+                    });
+                }
 
                 // 输入时保存
                 clone.querySelectorAll("input, select, textarea").forEach(el => {
                     el.addEventListener("input", saveData);
+                    el.addEventListener("change", saveData);
                 });
 
                 container.appendChild(clone);
@@ -1793,13 +1824,28 @@
             // 保存到 localStorage
             function saveData() {
                 const blocks = [];
-                container.querySelectorAll("div").forEach(block => {
+                container.querySelectorAll(".block").forEach(block => {
                     const data = {};
-                    block.querySelectorAll("input, select, textarea").forEach(el => {
-                        if (el.name) data[el.name] = el.value;
-                    });
-                    if (Object.keys(data).length > 0) blocks.push(data);
+                    const blockId = block.dataset.blockId;
+
+                    if (blockId) {
+                        data.blockId = blockId;
+
+                        // 收集该块内所有表单元素的值
+                        block.querySelectorAll("input, select, textarea").forEach(el => {
+                            if (el.name) {
+                                // 移除唯一标识符后缀保存原始name
+                                const originalName = el.name.replace(`_${blockId}`, '');
+                                if (originalName) {
+                                    data[originalName] = el.value;
+                                }
+                            }
+                        });
+
+                        blocks.push(data);
+                    }
                 });
+
                 localStorage.setItem(storageKey, JSON.stringify(blocks));
             }
 
@@ -1807,7 +1853,12 @@
             function loadData() {
                 const saved = localStorage.getItem(storageKey);
                 if (saved) {
-                    JSON.parse(saved).forEach(data => renderBlock(data));
+                    try {
+                        const blocks = JSON.parse(saved);
+                        blocks.forEach(data => renderBlock(data));
+                    } catch (e) {
+                        console.error('加载数据时出错:', e);
+                    }
                 }
             }
 
